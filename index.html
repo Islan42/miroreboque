@@ -4,7 +4,7 @@
 		<title>MIRO REBOQUE</title>
 		<meta charset = 'utf-8'>
 		<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
-		<link rel = 'stylesheet' href = 'style.css'/>
+		<link rel = 'stylesheet' href = 'style.css' type = 'text/css'/>
 		<script src = 'main.js' defer/></script>
 	</head>
 	<body>
@@ -12,14 +12,43 @@
 			<h1>MIRO REBOQUE</h1>
 			<nav>
 				<ul>
-					<li><a>SOBRE</a></li>
-					<li><a>CONTATO</a></li>
+					<li><a href = '#'>INÍCIO</a></li>
+					<li><a href = '#'>SOBRE</a></li>
+					<li><a href = '#'>CONTATO</a></li>
 				</ul>
 			</nav>
 		</header>
 		<main>
-			<aside>ASIDE</aside>
-			<section></section>
+			<aside>
+				<form>
+					<div>
+						<label for = 'disp'>Disponível</label>
+						<input id = 'disp' name = 'disp' type = 'checkbox'>
+					</div>
+					<div>
+						<label for = 'preco'>Preço</label>
+						<input id = 'preco' name = 'preco' type = 'range' min = '50' max = '100' step = '10'>
+						<output></output>
+					</div>
+					<div>
+						<label for = 'tamanho'>Tamanho</label>
+						
+						<select id = 'tamanho' name = 'tam'>
+							<option selected>Todas</option>
+							<option>Pequena</option>
+							<option>Média</option>
+							<option>Grande</option>
+						</select>
+					</div>
+					<div>
+						<button>Filtrar</button>
+					</div>
+					<div>
+						<button type = 'reset'>Limpar Filtro</button>
+					</div>
+				</form>
+			</aside>
+			<section><ul></ul></section>
 		</main>
 		<footer>
 			FOOTER
