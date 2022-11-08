@@ -71,3 +71,56 @@ input {
 	width: 100%;
 	margin: 0.5rem 0;
 }
+
+/* PROXIMOS PASSOS
+<HEADER> 
+	MIRO REBOQUE (GRANDE) (FONTE ARIAL);
+	Ao lado esquerdo, um desenho de um reboque (Usar FLOAT?);
+	<NAV>
+		Fazer com que tenha um tamanho máximo.
+		Os flex-items precisam estar bem distribuídos.
+		Centralizar os itens.
+	</NAV>
+</HEADER>
+
+<ASIDE>
+	Ajeitar o form:
+		Label + Checkbox na mesma linha
+		Preço + Range tá bom, mas precisa adicionar um <output>
+		Label 'Tamanho' tá bom
+		Pôr 'Filtrar' e 'Limpar' na mesma linha, em lados opostos (talvez na mesma div com display: flex)
+</ASIDE>
+
+<MAIN>
+	Essa é parte mais complicada pois terei que mexer com tamanhos.
+	<ARTICLE>
+		Primeiramente, precisa ter um tamanho máximo.
+		Centralizar os textos.
+		Redimensionar a imagem e fazê-la responsiva junto com o article.
+		Nos <article> com class = 'indisponível':
+			Acinzentar a image, provavelmente adicionando um background ao container div;
+			Quando :hover -> Em vez de mostrar uma lupa no centro, mostrar uma "placa: INDISPONÍVEL" vermelha;
+			Ainda assim, manter a imagem clicável
+		Nos <article> com class = 'disponivel', adicionar a imagem de uma lupa preta ao :hover usando background.
+			Ao clicar na imagem, abrir uma nova <div>, como um pop up, exibindo mais fotos da carroça em questão. Fazer isso usando JS.
+				Nessa nova div, o carrocel de fotos (grande) ficará a esquerda e as informações à direita (Provavelmente utilizando uma tabela).
+					Em caso mobile, a imagem ficará em cima e as informações em baixo.
+				Eu gostaria que não fosse possível clicar fora da div, e talvez acinzentar um pouco o fundo. (talvez adicionando uma grande <div> "com posição absoluta(talvez fixa seja melhor)" do tamanho do viewport)
+				Não esquecer de colocar um X vermelho no canto superior direito para fechar a div.
+				Colocar um botão para "ALUGAR", que não funcionará (apenas manda um console.log()), mas ficará "ativo" na cor verde ou "inativo" na cor cinza. Não precisa se estressar com JS aqui, como é uma coisa apenas visual, basta usar uma classe para separar.
+		TALVEZ adicionar um botão de alugar, que levará a uma outra página com um form. Mas isso seria por último.
+	</ARTICLE>
+</MAIN>
+<FOOTER>
+	Colocar informações de contato:
+		Tel
+		E-mail
+		Endereço
+		Um mapa?????? [Localiza aí kkkkkk]
+		Redes sociais:
+			tt
+			inst
+			orkut
+			face
+</FOOTER>
+*/

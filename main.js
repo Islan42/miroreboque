@@ -30,7 +30,7 @@ function displayContent(list) {
 		const li = document.createElement('li');
 		const para = document.createElement('p');
 		
-		para.textContent = 'Nenhum resultado encontrado. Tente redefinir a busca';
+		para.textContent = 'Nenhum resultado encontrado. Tente redefinir a busca.';
 		
 		li.appendChild(para);
 		ul.appendChild(li);
@@ -55,7 +55,8 @@ function displayContent(list) {
 			h1.textContent = rbq.nome;
 			medidas.textContent = `${rbq.comp1} x ${rbq.comp2} x ${rbq.altura}`;
 			preco.textContent = `Valor da diária\nR$${rbq.preco},00`; //Substituir pela função imbutida que adiciona dois zeros no final do número
-			img.setAttribute('src', `images/${rbq.img}.png`);
+			img.setAttribute('src', `images/a.png`);
+			img.setAttribute('width', `400`);
 			article.className = rbq.disp? 'disponivel' : 'indisponivel';
 		}
 	}
