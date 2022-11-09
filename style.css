@@ -1,3 +1,21 @@
+body {
+	font: 100% Arial, sans-serif;
+}
+
+header {
+	display: flex;
+	align-items: center;
+}
+
+header h1 {
+	color: red;
+	font-size: 4.5rem;
+}
+
+/*
+header nav {
+	max-width: 300px;
+}
 h1, p {
 	margin: 0;
 }
@@ -31,23 +49,22 @@ footer {
 body {
 	margin: 0;
 }
-/**/
+
 nav ul {
 	flex: 1;
 	display: flex;
 	list-style: none;
-	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
 	box-sizing: border-box;
 	padding: 1rem;
 }
 
 nav li {
-	width: 100px; /*Transformar em 'em'*/
+	width: 100px; Transformar em 'em'
 }
 
 header h1{
-	flex: 3;
+	box-sizing: border-box;
 }
 
 section ul {
@@ -65,12 +82,13 @@ section ul article {
 	box-sizing: border-box;
 }
 
-/* FORMS */
+	FORMS 
 
 input {
 	width: 100%;
 	margin: 0.5rem 0;
 }
+*/
 
 /* PROXIMOS PASSOS
 <HEADER> 
