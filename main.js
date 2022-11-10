@@ -6,6 +6,10 @@ const tamanho = document.getElementById('tamanho');
 
 document.addEventListener('DOMContentLoaded', () => submitSearch('reboques.json'));
 
+preco.addEventListener('input', () => {
+	const output = document.querySelector('#output output');
+	output.textContent = preco.value;
+});
 form.addEventListener('submit', (event) => {
 	event.preventDefault();
 	submitSearch('reboques.json');
@@ -56,7 +60,6 @@ function displayContent(list) {
 			medidas.textContent = `${rbq.comp1} x ${rbq.comp2} x ${rbq.altura}`;
 			preco.textContent = `Valor da diária\nR$${rbq.preco},00`; //Substituir pela função imbutida que adiciona dois zeros no final do número
 			img.setAttribute('src', `images/a.png`);
-			img.setAttribute('width', `400`);
 			article.className = rbq.disp? 'disponivel' : 'indisponivel';
 		}
 	}

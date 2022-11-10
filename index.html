@@ -31,8 +31,10 @@
 					</div>
 					<div>
 						<label for = 'preco'>Preço máximo</label>
-						<input id = 'preco' name = 'preco' type = 'range' min = '50' max = '100' step = '10'>
-						<output></output>
+						<div id = 'output'>
+							<input id = 'preco' name = 'preco' type = 'range' min = '50' max = '100' step = '10' value = '60'>
+							<output for = 'preco'>00</output>
+						</div>
 					</div>
 					<div>
 						<label for = 'tamanho'>Tamanho</label>
@@ -45,10 +47,8 @@
 						</select>
 					</div>
 					<div>
+						<button type = 'reset'>Limpar</button>
 						<button>Filtrar</button>
-					</div>
-					<div>
-						<button type = 'reset'>Limpar Filtro</button>
 					</div>
 				</form>
 			</aside>
