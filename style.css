@@ -53,6 +53,13 @@ main {
 }
 main aside {
 	padding: 1rem;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+main aside h2 {
+	text-align: center;
+	margin: 0;
+	font-size: 1.2rem;
 }
 main aside form label {
 	padding: 0 0.5rem 0 0;
@@ -81,19 +88,19 @@ main section ul {
 	grid-template-columns: 1fr 1fr;
 	gap: 2rem;
 }
-main section ul li {
-	max-width: 350px;
-}
 main section ul article {
 	position: relative;
 	border: 1px solid black;
+	max-width: 350px;
+	margin: 0 auto;
 }
 main article img {
-	max-width: 350px;
+	max-width: 100%;
 }
 main article p, main article h1 {
 	text-align: center;
 }
+
 /*
 
 
