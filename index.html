@@ -9,7 +9,10 @@
 	</head>
 	<body>
 		<header>
-			<h1>MIRO REBOQUE</h1>
+			<div>
+				<h1>MIRO REBOQUE</h1>
+				<h2>SLOGAN</h2>
+			</div>
 			<nav>
 				<ul>
 					<li><a href = '#'>INÍCIO</a></li>
@@ -21,14 +24,17 @@
 		<main>
 			<aside>
 				<form>
+					<h2>Filtrar busca</h2>
 					<div>
 						<label for = 'disp'>Disponível</label>
 						<input id = 'disp' name = 'disp' type = 'checkbox'>
 					</div>
 					<div>
 						<label for = 'preco'>Preço máximo</label>
-						<input id = 'preco' name = 'preco' type = 'range' min = '50' max = '100' step = '10'>
-						<output></output>
+						<div id = 'output'>
+							<input id = 'preco' name = 'preco' type = 'range' min = '50' max = '100' step = '10' value = '60'>
+							<output for = 'preco'>00</output>
+						</div>
 					</div>
 					<div>
 						<label for = 'tamanho'>Tamanho</label>
@@ -41,10 +47,8 @@
 						</select>
 					</div>
 					<div>
+						<button type = 'reset'>Limpar</button>
 						<button>Filtrar</button>
-					</div>
-					<div>
-						<button type = 'reset'>Limpar Filtro</button>
 					</div>
 				</form>
 			</aside>

@@ -1,62 +1,214 @@
-h1, p {
-	margin: 0;
+/*	GERAL	*/
+
+body {
+	font: 100% Arial, sans-serif;
+	margin: 0 auto;
+	max-width: 1200px;
 }
+
+/*	HEADER	*/
 header {
-	background-color: #aca1ff;
 	display: flex;
-	padding: 1rem;
-	box-sizing: border-box;
-	height: 150px;
 	align-items: center;
 }
+
+header div {
+	flex: 3;
+}
+
+header div h1 {
+	color: red;
+	font-size: 4.5rem;
+	margin: 1rem 0;
+	padding-left: 6.7rem;
+	background: url(images/b.png) left 1rem top 0.25rem / 4.7rem 4.7rem no-repeat;
+}
+
+header div h2 {
+	position: relative;
+	left: 110px;
+	bottom: 30px;
+}
+
+header nav {
+	flex: 1;
+	align-self: flex-end;
+	max-width: 275px;
+}
+
+header nav ul {
+	display: flex;
+	list-style: none;
+	padding: 1rem;
+}
+
+header nav li {
+	flex: 80px;
+	text-align: center;
+}
+
 
 main {
 	display: grid;
 	grid-template-columns: 250px 1fr;
-	box-sizing: border-box;
+}
+main aside {
+	padding: 1rem;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+main aside h2 {
+	text-align: center;
+	margin: 0;
+	font-size: 1.2rem;
+}
+main aside form label {
+	padding: 0 0.5rem 0 0;
+}
+main aside form div {
+	margin: 0.5rem 0;
+}
+form div:last-child {
+	display: flex;
+	justify-content: space-between;
+}
+form div#output {
+	display: flex;
+	align-items: center;
+}
+#output input, #output output {
+	flex: auto;
+	text-align: center;
 }
 
-aside {
-	background-color: #fff4cf;
+
+main section ul {
+	list-style: none;
 	padding: 1rem;
-	box-sizing: border-box;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
 }
+main section ul article {
+	border: 1px solid black;
+	max-width: 350px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+main article > div {
+	max-width: 95%;
+	margin: 0 auto;
+	position: relative;
+}
+main article img {
+	max-width: 100%;
+}
+.overlay {
+	position: absolute;
+	min-width: 100%;
+	min-height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0);
+}
+.overlay:hover {
+	background: url(images/mag_glass.png) center / 50px no-repeat;
+}
+.indisponivel .overlay {
+	position: absolute;
+	min-width: 100%;
+	min-height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+}
+article button {
+	appearance: none;
+	border-style: none;
+	background-color: green;
+	padding: 0.5rem;
+	font-size: 1rem;
+}
+main article p {
+	margin: 0.5rem 0 0 0;
+}
+
+.bigArticle {
+	display: flex;
+	max-width: 900px;
+	height: 500px;
+	margin: 0 auto;
+	padding:1rem 0;
+	box-sizing: border-box;
+	position: relative;
+	border: 1px solid black;
+}
+.bigArticle #pictures, .bigArticle #table {
+	width: 45%;
+	height: 500px;
+	margin: 0 auto;
+}
+#pictures {
+	display: flex;
+	align-items: center;
+}
+#pictures img {
+	max-width: 100%;
+}
+#containerImg {
+	position: relative;
+}
+#nextBtn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 50px;
+	background: url(images/arrow_r.png) no-repeat center / 50px 50px;
+}
+#prevBtn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 50px;
+	background: url(images/arrow_l.png) no-repeat center / 50px 50px;
+}
+
+.bigArticle table {
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: 95%;
+	margin: 0 auto;
+}
+.bigArticle th, .bigArticle td {
+	padding: 0.5rem;
+	text-align: left;
+	background-color: #fafafa;
+	width: 50%;
+}
+.bigArticle tr:nth-child(even) th, .bigArticle tr:nth-child(even) td {
+	background-color: #e0e0e0;
+}
+
+.bigArticle .closeBtn {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	background: url(images/close_icon.webp) center / 20px 20px no-repeat;
+	width: 20px;
+	height: 20px
+	;
+}
+/*
+
 
 footer {
 	background-color: #d0f0b6;
 	box-sizing: border-box;
 	padding: 1rem;
-}
-
-body {
-	margin: 0;
-}
-/**/
-nav ul {
-	flex: 1;
-	display: flex;
-	list-style: none;
-	align-items: center;
-	justify-content: space-around;
-	box-sizing: border-box;
-	padding: 1rem;
-}
-
-nav li {
-	width: 100px; /*Transformar em 'em'*/
-}
-
-header h1{
-	flex: 3;
-}
-
-section ul {
-	list-style: none;
-	padding: 1rem;
-	box-sizing: border-box;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 2rem;
 }
 
 section ul article {
@@ -65,31 +217,13 @@ section ul article {
 	box-sizing: border-box;
 }
 
-/* FORMS */
 
-input {
-	width: 100%;
-	margin: 0.5rem 0;
-}
 
 /* PROXIMOS PASSOS
-<HEADER> 
-	MIRO REBOQUE (GRANDE) (FONTE ARIAL);
-	Ao lado esquerdo, um desenho de um reboque (Usar FLOAT?);
-	<NAV>
-		Fazer com que tenha um tamanho máximo.
-		Os flex-items precisam estar bem distribuídos.
-		Centralizar os itens.
-	</NAV>
-</HEADER>
-
-<ASIDE>
-	Ajeitar o form:
-		Label + Checkbox na mesma linha
-		Preço + Range tá bom, mas precisa adicionar um <output>
-		Label 'Tamanho' tá bom
-		Pôr 'Filtrar' e 'Limpar' na mesma linha, em lados opostos (talvez na mesma div com display: flex)
-</ASIDE>
+<ARTICLE>
+	Centralizar o botão, provavelmente fazerndo uma div e colocando os elementos anteriores dentro (incluindo o botão), e fazendo essa div como flex container tipo column.
+		usar div + div selector
+</ARTICLE>
 
 <MAIN>
 	Essa é parte mais complicada pois terei que mexer com tamanhos.

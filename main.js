@@ -6,6 +6,10 @@ const tamanho = document.getElementById('tamanho');
 
 document.addEventListener('DOMContentLoaded', () => submitSearch('reboques.json'));
 
+preco.addEventListener('input', () => {
+	const output = document.querySelector('#output output');
+	output.textContent = preco.value;
+});
 form.addEventListener('submit', (event) => {
 	event.preventDefault();
 	submitSearch('reboques.json');
@@ -41,8 +45,10 @@ function displayContent(list) {
 			const medidas = document.createElement('p');
 			const preco = document.createElement('p');
 			const containerImg = document.createElement('div');
+			const overlay = document.createElement('div')
 			const img = document.createElement('img')
 			const li = document.createElement('li');
+			const button = document.createElement('button');
 			
 			ul.appendChild(li);
 			li.appendChild(article);
@@ -50,14 +56,21 @@ function displayContent(list) {
 			article.appendChild(containerImg);
 			article.appendChild(preco);
 			article.appendChild(medidas);
+			article.appendChild(button);
 			containerImg.appendChild(img)
+			containerImg.appendChild(overlay);
 			
 			h1.textContent = rbq.nome;
-			medidas.textContent = `${rbq.comp1} x ${rbq.comp2} x ${rbq.altura}`;
-			preco.textContent = `Valor da diária\nR$${rbq.preco},00`; //Substituir pela função imbutida que adiciona dois zeros no final do número
+			medidas.textContent = `${rbq.comp1.toFixed(2)} x ${rbq.comp2.toFixed(2)} x ${rbq.altura.toFixed(2)}`;
+			preco.textContent = `Valor da diária\nR$${rbq.preco.toFixed(2)}`;
+			button.textContent = 'ALUGAR';
+			button.setAttribute('type', 'button');
 			img.setAttribute('src', `images/a.png`);
-			img.setAttribute('width', `400`);
+			overlay.className = 'overlay';
 			article.className = rbq.disp? 'disponivel' : 'indisponivel';
+			
+			containerImg.addEventListener('click', (e) => openBigArticle(rbq));
+			//button.addEventListener('click');
 		}
 	}
 	
@@ -75,4 +88,96 @@ function select(list) {
 		}
 	}
 	displayContent(newlist);
+}
+
+function openBigArticle(rbq) {
+	const article = document.createElement('article');
+	const overlay = document.createElement('div');
+	const div1 = document.createElement('div');
+	const div2 = document.createElement('div');
+	const closeBtn = document.createElement('div');
+	
+	document.body.appendChild(overlay);
+	document.body.appendChild(article);
+	
+	article.appendChild(div1);
+	article.appendChild(div2);
+	article.appendChild(closeBtn);
+	article.className = 'bigArticle'
+	
+	createGallery();
+	createTable();
+	closeBtn.className = 'closeBtn';
+	overlay.className = 'overlayArticle';
+	div1.id = 'pictures';
+	div2.id = 'table';
+	
+	closeBtn.addEventListener('click', () => {
+		document.body.removeChild(overlay);
+		document.body.removeChild(article);
+	});
+	
+	function createGallery() {
+		const picture = document.createElement('img');
+		const srcset = ['images/a.png', 'images/b.png', 'images/c.png']
+		const containerImg = document.createElement('div');
+		const next = document.createElement('div');
+		const prev  = document.createElement('div');
+		let i = 0
+		
+		div1.appendChild(containerImg);
+		containerImg.appendChild(picture)
+		containerImg.appendChild(prev);
+		containerImg.appendChild(next);
+		
+		picture.setAttribute('src', srcset[0]);
+		containerImg.id = 'containerImg';
+		next.id = 'nextBtn';
+		prev.id = 'prevBtn';
+		next.addEventListener('click', () => nextPict());
+		prev.addEventListener('click', () => prevPict())
+		
+		function nextPict() {
+			if (i >= srcset.length - 1) {
+				i = 0;
+			} else {
+				i ++;
+			}
+			picture.setAttribute('src', srcset[i]);
+		}
+		function prevPict() {
+			if (i <= 0) {
+				i = srcset.length - 1;
+			} else {
+				i--;
+			}
+			picture.setAttribute('src', srcset[i]);
+		}
+	}
+	
+	function createTable() {
+		const table = document.createElement('table');
+		const tbody = document.createElement('tbody');
+		div2.appendChild(table);
+		table.appendChild(tbody);
+		
+		tbody.innerHTML = 
+		`
+		<tr>
+			<th>Medidas</th>
+			<td>${rbq.comp1.toFixed(2)}m x ${rbq.comp2.toFixed(2)}m x ${rbq.altura.toFixed(2)}m</td>
+		</tr>
+		<tr>
+			<th>Status</th>
+			<td>${rbq.disp?'Disponível':'Indisponível'}</td>
+		</tr>
+		<tr>
+			<th>Previsão de chegada</th>
+			<td>${rbq.disp?'':'Daqui a 12 horas'}</td>
+		</tr>
+		<tr>
+			<th>Valor</th>
+			<td>R$${rbq.preco.toFixed(2)}</td>
+		</tr>`
+	}
 }
