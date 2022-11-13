@@ -95,7 +95,7 @@ function openBigArticle(rbq) {
 	const overlay = document.createElement('div');
 	const div1 = document.createElement('div');
 	const div2 = document.createElement('div');
-	const closeBtn = document.createElement('img');
+	const closeBtn = document.createElement('div');
 	
 	document.body.appendChild(overlay);
 	document.body.appendChild(article);
@@ -107,8 +107,10 @@ function openBigArticle(rbq) {
 	
 	createGallery();
 	createTable();
-	closeBtn.setAttribute('src', 'images/c.png');
-	closeBtn.setAttribute('width', '10px');
+	closeBtn.className = 'closeBtn';
+	overlay.className = 'overlayArticle';
+	div1.id = 'pictures';
+	div2.id = 'table';
 	
 	closeBtn.addEventListener('click', () => {
 		document.body.removeChild(overlay);
@@ -118,17 +120,20 @@ function openBigArticle(rbq) {
 	function createGallery() {
 		const picture = document.createElement('img');
 		const srcset = ['images/a.png', 'images/b.png', 'images/c.png']
+		const containerImg = document.createElement('div');
 		const next = document.createElement('div');
 		const prev  = document.createElement('div');
 		let i = 0
 		
-		div1.appendChild(picture);
-		div1.appendChild(prev);
-		div1.appendChild(next);
+		div1.appendChild(containerImg);
+		containerImg.appendChild(picture)
+		containerImg.appendChild(prev);
+		containerImg.appendChild(next);
 		
 		picture.setAttribute('src', srcset[0]);
-		next.setAttribute('style', 'background-color: #666; height: 50px; width: 50px;');
-		prev.setAttribute('style', 'background-color: #666; height: 50px; width: 50px;');
+		containerImg.id = 'containerImg';
+		next.id = 'nextBtn';
+		prev.id = 'prevBtn';
 		next.addEventListener('click', () => nextPict());
 		prev.addEventListener('click', () => prevPict())
 		
@@ -152,8 +157,11 @@ function openBigArticle(rbq) {
 	
 	function createTable() {
 		const table = document.createElement('table');
+		const tbody = document.createElement('tbody');
 		div2.appendChild(table);
-		table.innerHTML = 
+		table.appendChild(tbody);
+		
+		tbody.innerHTML = 
 		`
 		<tr>
 			<th>Medidas</th>
@@ -162,18 +170,12 @@ function openBigArticle(rbq) {
 		<tr>
 			<th>Status</th>
 			<td>${rbq.disp?'Disponível':'Indisponível'}</td>
-		</tr>`;
-		if(!rbq.disp) {
-			table.innerHTML +=
-			`
-			<tr>
-				<th>Previsão de chegada</th>
-				<td>Daqui a 12 horas</td>
-			</tr>
-			`
-		}
-		table.innerHTML +=
-		`<tr>
+		</tr>
+		<tr>
+			<th>Previsão de chegada</th>
+			<td>${rbq.disp?'':'Daqui a 12 horas'}</td>
+		</tr>
+		<tr>
 			<th>Valor</th>
 			<td>R$${rbq.preco.toFixed(2)}</td>
 		</tr>`
