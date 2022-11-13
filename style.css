@@ -6,10 +6,35 @@ body {
 	max-width: 1200px;
 }
 
+a {
+	text-decoration: none;
+	outline: none;
+	text-align: center;
+	line-height: 2;
+	color: black;
+}
+a:link, a:visited, a:focus {
+	background-color: #ff2c2c;
+}
+a:hover {
+	background-color: #b42929;
+}
+a:active {
+	background-color:;
+	color: white;
+}
+
+.disponivel a:link, .disponivel a:visited, .disponivel a:focus {
+	background-color: #4cf08b;
+}
+.disponivel a:hover {
+	background-color: #289752;
+}
 /*	HEADER	*/
 header {
 	display: flex;
 	align-items: center;
+	background-color: #ff0040;
 }
 
 header div {
@@ -17,7 +42,7 @@ header div {
 }
 
 header div h1 {
-	color: red;
+	color: black;
 	font-size: 4.5rem;
 	margin: 1rem 0;
 	padding-left: 6.7rem;
@@ -33,24 +58,25 @@ header div h2 {
 header nav {
 	flex: 1;
 	align-self: flex-end;
-	max-width: 275px;
-}
-
-header nav ul {
 	display: flex;
-	list-style: none;
-	padding: 1rem;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem;
 }
-
-header nav li {
-	flex: 80px;
-	text-align: center;
+header nav a {
+	flex: 1;
 }
-
-
+header nav a:link, header nav a:visited, header nav a:focus {
+	background-color: rgba(252, 243, 51, 0.7);
+}
+header nav a:hover {
+	background-color: rgba(211, 203, 48, 0.7);
+}
+/*		MAIN	*/
 main {
 	display: grid;
 	grid-template-columns: 250px 1fr;
+	background-color: #fafafa;
 }
 main aside {
 	padding: 1rem;
@@ -90,12 +116,10 @@ main section ul {
 	gap: 2rem;
 }
 main section ul article {
-	border: 1px solid black;
 	max-width: 350px;
 	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	background-color: #dadada;
+	/*background-color: #acce86;*/
 }
 main article > div {
 	max-width: 95%;
@@ -104,6 +128,15 @@ main article > div {
 }
 main article img {
 	max-width: 100%;
+}
+.containerInfo{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.containerInfo p {
+	margin: 0;
+	padding: 0.5rem;
 }
 .overlay {
 	position: absolute;
@@ -115,6 +148,7 @@ main article img {
 }
 .overlay:hover {
 	background: url(images/mag_glass.png) center / 50px no-repeat;
+	cursor: pointer;
 }
 .indisponivel .overlay {
 	position: absolute;
@@ -124,32 +158,42 @@ main article img {
 	left: 0;
 	background-color: rgba(0,0,0,0.5);
 }
+/*		substituir por <a>
 article button {
 	appearance: none;
 	border-style: none;
 	background-color: green;
 	padding: 0.5rem;
 	font-size: 1rem;
+}*/
+main article p, main article h1 {
+	text-align: center
 }
-main article p {
-	margin: 0.5rem 0 0 0;
+main article h1 {
+	margin: 0;
+	padding: 1rem;
 }
 
 .bigArticle {
 	display: flex;
-	max-width: 900px;
-	height: 500px;
+	max-width: 90vw;
+	height: 90vh;
 	margin: 0 auto;
 	padding:1rem 0;
 	box-sizing: border-box;
-	position: relative;
 	border: 1px solid black;
+	background-color: #fff;
+	position: fixed;
+	top: 5vh;
+	left: 5vw;
+	z-index: 2;
 }
 .bigArticle #pictures, .bigArticle #table {
 	width: 45%;
-	height: 500px;
+	height: 100%;
 	margin: 0 auto;
 }
+
 #pictures {
 	display: flex;
 	align-items: center;
@@ -177,6 +221,12 @@ main article p {
 	background: url(images/arrow_l.png) no-repeat center / 50px 50px;
 }
 
+#table {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5%;
+}
 .bigArticle table {
 	table-layout: fixed;
 	border-collapse: collapse;
@@ -192,8 +242,11 @@ main article p {
 .bigArticle tr:nth-child(even) th, .bigArticle tr:nth-child(even) td {
 	background-color: #e0e0e0;
 }
+#table div {
+	display: flex;
+}
 
-.bigArticle .closeBtn {
+.bigArticle #closeBtn {
 	position: absolute;
 	top: 2px;
 	right: 2px;
@@ -202,15 +255,21 @@ main article p {
 	height: 20px
 	;
 }
-/*
 
-
-footer {
-	background-color: #d0f0b6;
-	box-sizing: border-box;
-	padding: 1rem;
+#overlayArticle {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.7);
 }
 
+footer {
+	background-color: #ffd148;
+}
+/*
 section ul article {
 	background-color: #ce87c8;
 	padding: 1rem;

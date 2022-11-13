@@ -45,18 +45,20 @@ function displayContent(list) {
 			const medidas = document.createElement('p');
 			const preco = document.createElement('p');
 			const containerImg = document.createElement('div');
+			const containerInfo = document.createElement('div');
 			const overlay = document.createElement('div')
 			const img = document.createElement('img')
 			const li = document.createElement('li');
-			const button = document.createElement('button');
+			const button = document.createElement('a');
 			
 			ul.appendChild(li);
 			li.appendChild(article);
 			article.appendChild(h1);
 			article.appendChild(containerImg);
-			article.appendChild(preco);
-			article.appendChild(medidas);
-			article.appendChild(button);
+			article.appendChild(containerInfo)
+			containerInfo.appendChild(preco);
+			containerInfo.appendChild(medidas);
+			containerInfo.appendChild(button);
 			containerImg.appendChild(img)
 			containerImg.appendChild(overlay);
 			
@@ -64,13 +66,13 @@ function displayContent(list) {
 			medidas.textContent = `${rbq.comp1.toFixed(2)} x ${rbq.comp2.toFixed(2)} x ${rbq.altura.toFixed(2)}`;
 			preco.textContent = `Valor da diária\nR$${rbq.preco.toFixed(2)}`;
 			button.textContent = 'ALUGAR';
-			button.setAttribute('type', 'button');
+			button.setAttribute('href', '#');
 			img.setAttribute('src', `images/a.png`);
+			containerInfo.className = 'containerInfo';
 			overlay.className = 'overlay';
 			article.className = rbq.disp? 'disponivel' : 'indisponivel';
 			
 			containerImg.addEventListener('click', (e) => openBigArticle(rbq));
-			//button.addEventListener('click');
 		}
 	}
 	
@@ -96,25 +98,37 @@ function openBigArticle(rbq) {
 	const div1 = document.createElement('div');
 	const div2 = document.createElement('div');
 	const closeBtn = document.createElement('div');
+	const alugar = document.createElement('a');
+	const containerAlugar = document.createElement('div');
+	const bigContainer = document.getElementById('bigContainer');
 	
-	document.body.appendChild(overlay);
-	document.body.appendChild(article);
+	while(bigContainer.firstChild) {
+		bigContainer.removeChild(bigContainer.firstChild)
+	}
+	
+	bigContainer.appendChild(overlay);
+	bigContainer.appendChild(article);
 	
 	article.appendChild(div1);
 	article.appendChild(div2);
 	article.appendChild(closeBtn);
-	article.className = 'bigArticle'
+	article.className = rbq.disp?'bigArticle disponivel':'bigArticle';
 	
 	createGallery();
 	createTable();
-	closeBtn.className = 'closeBtn';
-	overlay.className = 'overlayArticle';
+	div2.appendChild(containerAlugar);
+	containerAlugar.appendChild(alugar);
+	alugar.setAttribute('href', '#');
+	alugar.textContent = 'ALUGAR';
+	
+	closeBtn.id = 'closeBtn';
+	overlay.id = 'overlayArticle';
 	div1.id = 'pictures';
 	div2.id = 'table';
 	
 	closeBtn.addEventListener('click', () => {
-		document.body.removeChild(overlay);
-		document.body.removeChild(article);
+		bigContainer.removeChild(overlay);
+		bigContainer.removeChild(article);
 	});
 	
 	function createGallery() {
